@@ -1,0 +1,150 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  width: 100%;
+
+  border-bottom: 1px solid var(--color-border);
+
+  background: rgba(10, 10, 10, 0.88);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.navbar__inner {
+  min-height: 72px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: var(--space-xl);
+}
+
+/* ==============================
+   BRAND
+   ============================== */
+
+.navbar__brand {
+  font-family: var(--font-mono);
+
+  font-size: 0.95rem;
+  font-weight: 600;
+
+  letter-spacing: -0.04em;
+
+  white-space: nowrap;
+
+  transition: color var(--transition-fast);
+}
+
+.navbar__brand span {
+  color: var(--color-accent);
+}
+
+.navbar__brand:hover {
+  color: var(--color-accent);
+}
+
+/* ==============================
+   STATUS
+   ============================== */
+
+.navbar__status {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+
+  color: var(--color-text-muted);
+
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+
+  white-space: nowrap;
+}
+
+.navbar__status-indicator {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: var(--color-accent);
+
+  box-shadow: 0 0 10px var(--color-accent);
+}
+
+/* ==============================
+   NAVIGATION
+   ============================== */
+
+.navbar__navigation {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.navbar__navigation a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+
+  color: var(--color-text-muted);
+
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+
+  transition:
+    color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.navbar__navigation a:hover {
+  color: var(--color-text);
+}
+
+.navbar__github {
+  color: var(--color-text-secondary) !important;
+}
+
+.navbar__github:hover {
+  color: var(--color-accent) !important;
+
+  transform: translate(2px, -2px);
+}
+
+/* ==============================
+   RESPONSIVE
+   ============================== */
+
+@media (max-width: 900px) {
+  .navbar__status {
+    display: none;
+  }
+
+  .navbar__navigation {
+    gap: var(--space-md);
+  }
+}
+
+@media (max-width: 640px) {
+  .navbar__inner {
+    min-height: 64px;
+  }
+
+  .navbar__navigation {
+    gap: var(--space-sm);
+  }
+
+  .navbar__navigation a {
+    font-size: 0.6rem;
+  }
+
+  .navbar__navigation a:nth-child(2) {
+    display: none;
+  }
+}

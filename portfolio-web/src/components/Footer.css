@@ -1,0 +1,160 @@
+.footer {
+  padding-top: var(--space-3xl);
+  padding-bottom: var(--space-lg);
+
+  border-top: 1px solid var(--color-border);
+}
+
+/* ==============================
+   MAIN
+   ============================== */
+
+.footer__main {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: var(--space-2xl);
+
+  padding-bottom: var(--space-2xl);
+}
+
+.footer__brand {
+  display: inline-block;
+
+  font-family: var(--font-mono);
+  font-size: 1.2rem;
+  font-weight: 600;
+
+  letter-spacing: -0.04em;
+}
+
+.footer__brand span {
+  color: var(--color-accent);
+}
+
+.footer__description {
+  max-width: 500px;
+
+  margin-top: var(--space-md);
+
+  color: var(--color-text-muted);
+
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+
+  line-height: 1.7;
+  text-transform: uppercase;
+}
+
+/* ==============================
+   LINKS
+   ============================== */
+
+.footer__links {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: var(--space-lg);
+}
+
+.footer__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+
+  color: var(--color-text-muted);
+
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+
+  transition: color var(--transition-fast);
+}
+
+.footer__link:hover {
+  color: var(--color-accent);
+}
+
+/* ==============================
+   SYSTEM BAR
+   ============================== */
+
+.footer__system {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding-block: var(--space-md);
+
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+
+  color: var(--color-text-muted);
+
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+}
+
+.footer__system-status {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.footer__status-indicator {
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: var(--color-accent);
+
+  box-shadow: 0 0 8px var(--color-accent);
+}
+
+/* ==============================
+   BOTTOM
+   ============================== */
+
+.footer__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: var(--space-md);
+
+  padding-top: var(--space-lg);
+
+  color: var(--color-text-muted);
+
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+}
+
+.footer__bottom-right {
+  text-align: right;
+}
+
+/* ==============================
+   RESPONSIVE
+   ============================== */
+
+@media (max-width: 700px) {
+  .footer__main {
+    flex-direction: column;
+  }
+
+  .footer__links {
+    gap: var(--space-md);
+  }
+
+  .footer__bottom {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+  .footer__bottom-right {
+    text-align: left;
+  }
+}

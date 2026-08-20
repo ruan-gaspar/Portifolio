@@ -1,0 +1,338 @@
+.hero {
+  min-height: calc(100vh - 72px);
+
+  display: flex;
+  align-items: center;
+
+  padding-block: var(--space-3xl);
+
+  position: relative;
+  overflow: hidden;
+}
+
+.hero__content {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: var(--space-3xl);
+
+  align-items: end;
+}
+
+/* ==============================
+   SYSTEM LABEL
+   ============================== */
+
+.hero__label {
+  margin-bottom: var(--space-lg);
+
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+
+  color: var(--color-text-muted);
+
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero__label-line {
+  width: 32px;
+  height: 1px;
+
+  background: var(--color-border-hover);
+}
+
+/* ==============================
+   TITLE
+   ============================== */
+
+.hero__title {
+  max-width: 950px;
+
+  font-size: clamp(3.5rem, 9vw, 8.5rem);
+  font-weight: 600;
+
+  line-height: 0.9;
+  letter-spacing: -0.07em;
+}
+
+.hero__title-line {
+  display: block;
+}
+
+.hero__title-line--accent {
+  color: var(--color-text-muted);
+}
+
+/* ==============================
+   DESCRIPTION
+   ============================== */
+
+.hero__description {
+  max-width: 620px;
+
+  margin-top: var(--space-xl);
+
+  color: var(--color-text-muted);
+
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* ==============================
+   TECH STACK
+   ============================== */
+
+.hero__stack {
+  margin-top: var(--space-xl);
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.hero__stack-item {
+  padding: 0.4rem 0.65rem;
+
+  border: 1px solid var(--color-border);
+
+  color: var(--color-text-muted);
+
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+
+  transition:
+    color var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.hero__stack-item:hover {
+  color: var(--color-text);
+  border-color: var(--color-border-hover);
+}
+
+/* ==============================
+   ACTION
+   ============================== */
+
+.hero__actions {
+  margin-top: var(--space-2xl);
+
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.hero__button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+
+  padding: 0.8rem 1rem;
+
+  background: var(--color-text);
+  color: var(--color-background);
+
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+
+  transition:
+    background var(--transition-fast),
+    color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.hero__button:hover {
+  background: var(--color-accent);
+
+  transform: translateY(-2px);
+}
+
+/* ==============================
+   STATUS
+   ============================== */
+
+.hero__status {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+
+  color: var(--color-text-muted);
+
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+}
+
+.hero__status-indicator {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: var(--color-accent);
+
+  box-shadow: 0 0 10px var(--color-accent);
+}
+
+/* ==============================
+   METADATA
+   ============================== */
+
+.hero__metadata {
+  align-self: end;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+
+  color: var(--color-text-muted);
+
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+
+  text-align: right;
+}
+
+.hero__metadata-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.hero__metadata-label {
+  color: var(--color-text-muted);
+  opacity: 0.6;
+}
+
+.hero__metadata-value {
+  color: var(--color-text-secondary);
+}
+
+/* ==============================
+   DECORATIVE GRID
+   ============================== */
+
+.hero::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  z-index: -1;
+
+  background-image:
+    linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px
+    );
+
+  background-size: 80px 80px;
+
+  mask-image: linear-gradient(
+    to bottom,
+    black 0%,
+    transparent 80%
+  );
+
+  pointer-events: none;
+}
+
+/* ==============================
+   RESPONSIVE
+   ============================== */
+
+@media (max-width: 900px) {
+  .hero__content {
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+  }
+
+  .hero__metadata {
+    align-self: start;
+
+    flex-direction: row;
+
+    text-align: left;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    min-height: auto;
+
+    padding-block: var(--space-2xl);
+  }
+
+  .hero__title {
+    font-size: clamp(3rem, 15vw, 5rem);
+  }
+
+  .hero__description {
+    font-size: 0.95rem;
+  }
+
+  .hero__actions {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .hero__metadata {
+    flex-direction: column;
+  }
+
+  .hero::before {
+    background-size: 50px 50px;
+  }
+}
+/* ==============================
+   SCROLL INDICATOR
+   ============================== */
+
+.hero__scroll {
+  position: absolute;
+  bottom: var(--space-lg);
+  left: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 36px;
+  height: 36px;
+
+  border: 1px solid var(--color-border);
+
+  color: var(--color-text-muted);
+
+  transform: translateX(-50%);
+
+  transition:
+    color var(--transition-fast),
+    border-color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.hero__scroll:hover {
+  color: var(--color-accent);
+  border-color: var(--color-border-hover);
+
+  transform: translate(-50%, 3px);
+}
+
+@media (max-width: 640px) {
+  .hero__scroll {
+    display: none;
+  }
+}
