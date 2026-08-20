@@ -40,7 +40,7 @@ jobs:
       - name: Fazer o upload do build (pasta dist)
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist'
+          path: 'dist'
 
       - name: Publicar no GitHub Pages
         id: deployment
