@@ -1,8 +1,9 @@
-name: Deploy do Vite para o GitHub Pages
+name: Deploy Portfolio
 
 on:
   push:
-    branches: ["main"] # Altere para "master" se a sua branch principal tiver esse nome
+    branches:
+      - main
 
   workflow_dispatch:
 
@@ -12,36 +13,46 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "pages"
-  cancel-in-progress: false
+  group: pages
+  cancel-in-progress: true
 
 jobs:
   deploy:
+
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+
     runs-on: ubuntu-latest
+
     steps:
+
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Configurar Node.js
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
-          cache: 'npm'
+          node-version: 22
+          cache: npm
+          cache-dependency-path: portfolio-web/package-lock.json
 
-      - name: Instalar dependências
+      - name: Install dependencies
+        working-directory: portfolio-web
         run: npm ci
 
-      - name: Buildar o projeto
+      - name: Build
+        working-directory: portfolio-web
         run: npm run build
 
-      - name: Fazer o upload do build (pasta dist)
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'dist'
+          path: portfolio-web/dist
 
-      - name: Publicar no GitHub Pages
+      - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
