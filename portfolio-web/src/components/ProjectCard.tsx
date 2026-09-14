@@ -1,5 +1,7 @@
 import { ArrowUpRight } from "lucide-react";
+
 import type { Project } from "../data/projects";
+
 import "./ProjectCard.css";
 
 interface ProjectCardProps {
@@ -10,14 +12,19 @@ export function ProjectCard({
   project,
 }: ProjectCardProps) {
   return (
-    <article className="project-card">
+    <article
+      className={`project-card ${
+        project.featured
+          ? "project-card--featured"
+          : ""
+      }`}
+    >
       <header className="project-card__header">
         <span className="project-card__number">
-          PROJECT / {project.number}
+          {project.number}
         </span>
 
         <span className="project-card__status">
-          <span className="project-card__status-indicator" />
           {project.status}
         </span>
       </header>
@@ -36,25 +43,46 @@ export function ProjectCard({
         </p>
 
         <div className="project-card__technologies">
-          {project.technologies.map((technology) => (
-            <span
-              key={technology}
-              className="project-card__technology"
-            >
-              {technology}
-            </span>
-          ))}
+          {project.technologies.map(
+            (technology) => (
+              <span
+                key={technology}
+                className="project-card__technology"
+              >
+                {technology}
+              </span>
+            )
+          )}
         </div>
       </div>
 
       <footer className="project-card__footer">
+        <div className="project-card__meta">
+          {project.collaboration && (
+            <span className="project-card__collaboration">
+              {project.collaboration}
+            </span>
+          )}
+
+          {project.role && (
+            <span className="project-card__role">
+              {project.role}
+            </span>
+          )}
+        </div>
+
         <a
           href={project.github}
           target="_blank"
           rel="noreferrer"
           className="project-card__link"
         >
-          VIEW ON GITHUB
+          <span>
+            {project.featured
+              ? "EXPLORE PROJECT"
+              : "VIEW ON GITHUB"}
+          </span>
+
           <ArrowUpRight size={14} />
         </a>
       </footer>

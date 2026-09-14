@@ -1,28 +1,49 @@
 export type ProjectStatus = "ACTIVE" | "COMPLETED" | "EXPERIMENTAL";
-
 export interface Project {
   id: string;
   number: string;
+
   title: string;
   category: string;
+
   description: string;
+
   status: ProjectStatus;
+
   technologies: string[];
+
   github: string;
+
+  collaboration?: string;
+
+  featured?: boolean;
+
+  role?: string;
 }
 
 export const projects: Project[] = [
   {
-    id: "agrotech",
-    number: "001",
-    title: "AGROTECH",
-    category: "IOT / CLOUD / SOFTWARE",
-    description:
-      "Multidisciplinary agricultural technology platform developed for the FIAP Oracle Challenge, integrating IoT, backend services, databases, mobile applications and intelligent data processing.",
-    status: "COMPLETED",
-    technologies: ["JAVA", ".NET", "PYTHON", "TYPESCRIPT", "ORACLE", "IoT"],
-    github: "https://github.com/challenge-oracle-2tdspr",
-  },
+  id: "agrotech",
+  number: "001",
+  title: "AGROTECH",
+  category: "IOT / CLOUD / SOFTWARE",
+  description:
+    "Multidisciplinary agricultural technology platform developed for the FIAP Oracle Challenge, integrating IoT, backend services, databases, mobile applications and intelligent data processing.",
+  status: "COMPLETED",
+  technologies: [
+    "JAVA",
+    ".NET",
+    "PYTHON",
+    "TYPESCRIPT",
+    "ORACLE",
+    "IoT",
+  ],
+  github:
+    "https://github.com/challenge-oracle-2tdspr",
+  collaboration: "3-PERSON TEAM",
+  featured: true,
+  role: "BACKEND / DATABASE / INTEGRATION",
+},
 
   {
     id: "digital-bank-api",
